@@ -1,19 +1,21 @@
+# Forked from https://github.com/sanjayV/ng-image-slider
+
 # Angular Image Slider with Lightbox
 
 An Angular responsive image slider with lightbox popup.
 Also support youtube and mp4 video urls.
 
-(Compatible with Angular Version: 14)
+(Compatible with Angular Version: 16)
 
 ## Features!
 
-  - Responsive (support images width and height in both % and px)
-  - captures swipes from phones and tablets
-  - Compatible with Angular Universal
-  - Image lightbox popup
-  - captures keyboard next/previous arrow key event for lightbox image move
-  - Support Images (jpeg, jpg, gif, png and Base64-String), Youtube url and MP4 video (url and Base64-String)
-  - Handling runtime image arraylist changes
+- Responsive (support images width and height in both % and px)
+- captures swipes from phones and tablets
+- Compatible with Angular Universal
+- Image lightbox popup
+- captures keyboard next/previous arrow key event for lightbox image move
+- Support Images (jpeg, jpg, gif, png and Base64-String), Youtube url and MP4 video (url and Base64-String)
+- Handling runtime image arraylist changes
 
 ### Demo: https://sanjayv.github.io/ng-image-slider/
 ##### code example:
@@ -22,7 +24,7 @@ Also support youtube and mp4 video urls.
 
 
 # Installation
-`npm install ng-image-slider --save`
+`npm install @tic-nova/ng-image-slider --save`
 
 # Setup :
 
@@ -32,15 +34,15 @@ import { NgImageSliderModule } from 'ng-image-slider';
 ...
 
 @NgModule({
-    declarations: [
-        AppComponent
-    ],
-    imports: [
-        NgImageSliderModule,
-        ...
-    ],
-    providers: [],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    NgImageSliderModule,
+    ...
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
 
 export class AppModule {
@@ -56,39 +58,39 @@ export class AppModule {
 **ImageObject format**
 ```js
 imageObject: Array<object> = [{
-        image: 'assets/img/slider/1.jpg',
-        thumbImage: 'assets/img/slider/1_min.jpeg',
-        alt: 'alt of image',
-        title: 'title of image'
-    }, {
-        image: '.../iOe/xHHf4nf8AE75h3j1x64ZmZ//Z==', // Support base64 image
-        thumbImage: '.../iOe/xHHf4nf8AE75h3j1x64ZmZ//Z==', // Support base64 image
-        title: 'Image title', //Optional: You can use this key if want to show image with title
-        alt: 'Image alt', //Optional: You can use this key if want to show image with alt
-        order: 1 //Optional: if you pass this key then slider images will be arrange according @input: slideOrderType
-    }
+  image: 'assets/img/slider/1.jpg',
+  thumbImage: 'assets/img/slider/1_min.jpeg',
+  alt: 'alt of image',
+  title: 'title of image'
+}, {
+  image: '.../iOe/xHHf4nf8AE75h3j1x64ZmZ//Z==', // Support base64 image
+  thumbImage: '.../iOe/xHHf4nf8AE75h3j1x64ZmZ//Z==', // Support base64 image
+  title: 'Image title', //Optional: You can use this key if want to show image with title
+  alt: 'Image alt', //Optional: You can use this key if want to show image with alt
+  order: 1 //Optional: if you pass this key then slider images will be arrange according @input: slideOrderType
+}
 ];
 ```
 
 **Image, Youtube and MP4 url's object format**
  ```js
 imageObject: Array<object> = [{
-        video: 'https://youtu.be/6pxRHBw-k8M' // Youtube url
-    },
-	{
-		video: 'assets/video/movie.mp4', // MP4 Video url
-	},
-	{
-		video: 'assets/video/movie2.mp4',
-        posterImage: 'assets/img/slider/2_min.jpeg', //Optional: You can use this key if you want to show video poster image in slider
-        title: 'Image title'
-    },
-	{
-		image: 'assets/img/slider/1.jpg',
-        thumbImage: 'assets/img/slider/1_min.jpeg',
-        alt: 'Image alt'
-	}
-    ...
+  video: 'https://youtu.be/6pxRHBw-k8M' // Youtube url
+},
+  {
+    video: 'assets/video/movie.mp4', // MP4 Video url
+  },
+  {
+    video: 'assets/video/movie2.mp4',
+    posterImage: 'assets/img/slider/2_min.jpeg', //Optional: You can use this key if you want to show video poster image in slider
+    title: 'Image title'
+  },
+  {
+    image: 'assets/img/slider/1.jpg',
+    thumbImage: 'assets/img/slider/1_min.jpeg',
+    alt: 'Image alt'
+  }
+  ...
 ];
 ```
 
@@ -96,7 +98,7 @@ imageObject: Array<object> = [{
 For angular version 8 or less, use `"skipLibCheck": true` in `tsconfig.json` for prevent **ambient context** issue.
 ```js
 "compilerOptions": {
-    "skipLibCheck": true
+  "skipLibCheck": true
 }
 ```
 
@@ -130,8 +132,8 @@ For angular version 8 or less, use `"skipLibCheck": true` in `tsconfig.json` for
 import { NgImageSliderComponent } from 'ng-image-slider';
 
 @Component({
-    selector: 'sample',
-        template:`
+  selector: 'sample',
+  template:`
         <ng-image-slider [images]="imageObject" #nav>
         </ng-image-slider>
         <button (click)="prevImageClick()">Prev</button>
@@ -139,16 +141,16 @@ import { NgImageSliderComponent } from 'ng-image-slider';
         `
 })
 class Sample {
-    @ViewChild('nav') slider: NgImageSliderComponent;
-    imageObject = [{...}]
+  @ViewChild('nav') slider: NgImageSliderComponent;
+  imageObject = [{...}]
 
-    prevImageClick() {
-        this.slider.prev();
-    }
+  prevImageClick() {
+    this.slider.prev();
+  }
 
-    nextImageClick() {
-        this.slider.next();
-    }
+  nextImageClick() {
+    this.slider.next();
+  }
 }
 ```
 
